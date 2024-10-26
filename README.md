@@ -1,3 +1,3 @@
 ### RBAC
 
-- Add `AcrPull` for `hub_service_principal` over ACR.
+- Add `AcrPull` for service principal over ACR.
