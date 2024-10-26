@@ -19,9 +19,7 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          client-id: ${{ vars.SPOKE_DEV_CLIENT_ID }}
-          tenant-id: ${{ vars.TENANT_ID }}  # Accessing organization variable
-          subscription-id: ${{ vars.SPOKE_DEV_SUBSCRIPTION_ID }}  # Accessing organization variable
+          creds: ${{ secrets.SPOKE_DEV_CREDENTIALS }}
 
       - name: ACR Login
         run: |
