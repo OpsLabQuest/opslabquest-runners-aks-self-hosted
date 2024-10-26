@@ -1,1 +1,3 @@
-# opslabquest-runners-aks-self-hosted
+### RBAC
+
+- Add `AcrPull` for `hub_service_principal` over ACR.
