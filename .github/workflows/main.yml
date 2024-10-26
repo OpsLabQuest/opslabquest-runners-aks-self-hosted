@@ -1,4 +1,4 @@
-name: Build And Push Docker Image To ACR
+name: Build And Push Image To ACR
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  BuildAndPushDockerImageToACR:
+  BuildAndPushImageToACR:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
