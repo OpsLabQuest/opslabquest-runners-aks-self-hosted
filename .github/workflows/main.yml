@@ -1,12 +1,12 @@
 name: ACR Login Workflow
 
 on:
-    push:
-      branches:
-        - main
-    pull_request:
-      branches:
-        - main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   login:
@@ -15,14 +15,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
+      
       - name: Azure CLI Login
         uses: azure/login@v2
         with:
-            client-id: ${{ secrets.SPOKE_DEV_CLIENT_ID }}
-            client-secret: ${{ secrets.SPOKE_DEV_CLIENT_SECRET }}
-            tenant-id: ${{ secrets.TENANT_ID }}
-            subscription-id: ${{ secrets.SPOKE_DEV_SUBSCRIPTION_ID }}
+          creds: |
+            {
+              "clientId": "${{ vars.SPOKE_DEV_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.SPOKE_DEV_CLIENT_SECRET }}",
+              "subscriptionId": "${{ vars.SPOKE_DEV_SUBSCRIPTION_ID }}",
+              "tenantId": "${{ vars.TENANT_ID }}"
+            }
 
       - name: ACR Login
         run: |
