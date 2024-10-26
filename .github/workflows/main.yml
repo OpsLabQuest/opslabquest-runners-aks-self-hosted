@@ -26,7 +26,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az account show
+            az account show 
 
       - name: ACR login
         run: |
