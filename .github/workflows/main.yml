@@ -28,7 +28,6 @@ jobs:
           inlineScript: |
             az account show
 
-            
       - name: ACR login
         run: |
-          az acr login --name acrhubcus01
+          az acr login --name acrhubdevscuslzic
