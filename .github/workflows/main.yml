@@ -15,17 +15,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      
-      - name: Azure CLI Login
+
+      - name: Azure login
         uses: azure/login@v2
         with:
-          creds: |
-            {
-              "clientId": "${{ vars.SPOKE_DEV_CLIENT_ID }}",
-              "clientSecret": "${{ secrets.SPOKE_DEV_CLIENT_SECRET }}",
-              "subscriptionId": "${{ vars.SPOKE_DEV_SUBSCRIPTION_ID }}",
-              "tenantId": "${{ vars.TENANT_ID }}"
-            }
+          client-id: ${{ secrets.SPOKE_DEV_CLIENT_ID }}
+          tenant-id: ${{ vars.TENANT_ID }}
+          subscription-id: ${{ vars.SPOKE_DEV_SUBSCRIPTION_ID }}
 
       - name: ACR Login
         run: |
