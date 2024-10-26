@@ -1,3 +1,3 @@
 ### RBAC
 
-- Add `AcrPull` for service principal over ACR.
+- Add `AcrPull` & `AcrPush` for service principal over ACR.
