@@ -1,4 +1,4 @@
-name: ACR Login Workflow
+name: BuildAndPushImageToACR
 
 on:
   push:
@@ -9,9 +9,8 @@ on:
       - main
 
 jobs:
-  login:
+  BuildAndPushImageToACR:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -26,8 +25,13 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az account show 
+            az account show
 
       - name: ACR login
         run: |
           az acr login --name acrhubdevscuslzic
+
+      - name: Build and Push Docker Image to ACR
+        run: |
+          docker build -t acrhubdevscuslzic.azurecr.io/terraform/terraform-image:latest -f Dockerfile . && \
+          docker push acrhubdevscuslzic.azurecr.io/terraform/terraform-image:latest
