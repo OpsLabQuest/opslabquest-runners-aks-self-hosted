@@ -19,7 +19,7 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.SPOKE_DEV_CREDENTIALS }}
+          creds: ${{ secrets.HUB_CREDENTIALS }}
 
       - name: Azure CLI script
         uses: azure/cli@v2
@@ -28,6 +28,6 @@ jobs:
           inlineScript: |
             az account show
 
-      - name: ACR Login
+      - name: ACR login
         run: |
           az acr login --name acrhubcus01
