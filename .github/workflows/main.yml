@@ -20,8 +20,8 @@ jobs:
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.SPOKE_DEV_CLIENT_ID }}
-          tenant-id: ${{ vars.TENANT_ID }}
-          subscription-id: ${{ vars.SPOKE_DEV_SUBSCRIPTION_ID }}
+          tenant-id: ${{ vars.TENANT_ID }}  # Accessing organization variable
+          subscription-id: ${{ vars.SPOKE_DEV_SUBSCRIPTION_ID }}  # Accessing organization variable
 
       - name: ACR Login
         run: |
